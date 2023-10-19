@@ -53,7 +53,7 @@ namespace Factory.Controllers
 
         public ActionResult Edit(int id)
         {
-        Enginner thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+        Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
         return View(thisEngineer);
         }
 
@@ -80,7 +80,7 @@ namespace Factory.Controllers
         return RedirectToAction("Index");
         }
 
-        public ActionResult AddTag(int id)
+        public ActionResult AddMachine(int id)
         {
         Engineer thisEngineer = _db.Engineers.FirstOrDefault(items => items.EngineerId == id);
         ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Description");
@@ -88,10 +88,10 @@ namespace Factory.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddTag(Engineer engineer, int machineId)
+        public ActionResult AddMachine(Engineer engineer, int machineId)
         {
     #nullable enable
-        EngineerMachine? joinEntity = _db.EnginerMachines.FirstOrDefault(join => (join.MachineId == machineId && join.EngineerId == engineer.EngineerId));
+        EngineerMachine? joinEntity = _db.EngineerMachines.FirstOrDefault(join => (join.MachineId == machineId && join.EngineerId == engineer.EngineerId));
     #nullable disable
         if (joinEntity == null && machineId != 0)
         {
@@ -104,8 +104,8 @@ namespace Factory.Controllers
         [HttpPost]
         public ActionResult DeleteJoin(int joinId)
         {
-        EngineerMachine joinEntry = _db.EngineerMachiens.FirstOrDefault(entry => entry.EngineerMachineId == joinId);
-        _db.EngineerMachiens.Remove(joinEntry);
+        EngineerMachine joinEntry = _db.EngineerMachines.FirstOrDefault(entry => entry.EngineerMachineId == joinId);
+        _db.EngineerMachines.Remove(joinEntry);
         _db.SaveChanges();
         return RedirectToAction("Index");
         }
