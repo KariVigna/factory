@@ -1,4 +1,5 @@
 div#footer {
+    text-align: center;
     position:fixed;
     bottom:0px;
     left:0px;
@@ -7,3 +8,22 @@ div#footer {
     background:#333;
     padding:8px;
 }
+
+body {
+    text-align: center;
+    background-color: rgb(47, 46, 46);
+    color: rgb(47, 147, 214);
+    font-size: larger;
+}
+
+a {
+    color: rgb(151, 197, 240);
+    font-weight: bold;
+}
+
+h4 {
+    text-decoration: underline;
+}
+
+
+

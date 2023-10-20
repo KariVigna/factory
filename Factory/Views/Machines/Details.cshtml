@@ -7,26 +7,26 @@
 
 <h2>Machine Details</h2>
 <hr />
-<h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</h3>
+<h3>@Html.DisplayFor(model => model.Description)</h3>
 
 @if (@Model.JoinEntities.Count == 0)
     {
-    <p>This machine does not belong to any engineers</p>
+    <p>No engineers are license for this machine!</p>
     }
     else
     {
-    <h4>engineers who work this machine:</h4>
-    <ul>
+    <h5>Engineers licensed for this machine:</h5>
+    
     @foreach (EngineerMachine join in Model.JoinEntities)
         {
-        <li>@join.Engineer.Name</li>
+        <p>@join.Engineer.Name</p>
         @using (Html.BeginForm("DeleteJoin", "Machines"))
         {
             @Html.Hidden("joinId", @join.EngineerMachineId)
             <input type="submit" value="Delete" />
         }
         }
-    </ul>
+    
 }
 
 <p>@Html.ActionLink("Back to list", "Index")</p>
