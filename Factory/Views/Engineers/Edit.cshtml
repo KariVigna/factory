@@ -9,7 +9,7 @@
 <h4>@Html.DisplayFor(model => model.Name)</h4>
 
 @using (Html.BeginForm())
-
+{
     @Html.HiddenFor(model => model.EngineerId)
 
     @Html.LabelFor(model => model.Name)
@@ -18,3 +18,4 @@
     @Html.EditorFor(model => model.HireDate, new { @type = "date" })
 
     <input type="submit" value="Save" />
+}

@@ -4,7 +4,7 @@
 
 @using Factory.Models;
 
-<h1>Dr. Sillystringz's Factory Licensing</h1>
+<h1>Dr. Sillystringz Factory</h1>
 
 <hr>
 <br>
@@ -34,5 +34,6 @@
         <li>@Html.ActionLink(@engineer.Name, "Details", "Engineers", new { id = @engineer.EngineerId }) | @engineer.HireDate</li>
     }
 </ul>
+<br>
 <p>@Html.ActionLink("Manage Engineers", "Index", "Engineers")</p>
 <p>@Html.ActionLink("Add an Engineer", "Create", "Engineers")</p>
